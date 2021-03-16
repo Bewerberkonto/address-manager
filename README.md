@@ -1,4 +1,4 @@
 # address-manager
 Adress-Verwaltung
 
-Starten mit:  server/port/person/person-list
+Starten mit: http://localhost:8080/person-list/
