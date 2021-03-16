@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adress-Verwaltung</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h3>Personen-Liste</h3>
+<div th:each="person : ${persons}">
+    <p>Name:
+    <span th:text="${person.vorname}">Vorname</span>
+    <span th:text="${person.nachname}">Nachname</span></p>
+    <div th:each="personPhoneNumber : ${person.phoneNumberList}">
+        <p>Person-Tel-Nummer:
+        <span th:text="${personPhoneNumber.number}">Person-Tel-Nummer</span>
+            (<span th:text="${personPhoneNumber.phoneType.name}">Nummern-Typ</span>)</p>
+    </div>
+    <div th:each="address : ${person.addressList}">
+        <p>Adresse:
+        <span th:text="${address.street}">Strasse</span>,
+            <span th:text="${address.zipCode}">PLZ</span>
+            <span th:text="${address.city}">Stadt</span>,
+            <span th:text="${address.country}">Land</span></p>
+        <div th:each="addressPhoneNumber : ${address.phoneNumberList}">
+            <p>Adress-Tel-Nummer:
+            <span th:text="${addressPhoneNumber.number}">Adress-Tel-Nummer</span>
+                (<span th:text="${addressPhoneNumber.phoneType.name}">Nummern-Typ</span>)</p><br/>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
